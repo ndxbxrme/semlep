@@ -1,0 +1,18 @@
+mixin textbox(title, name, ...errors)
+  label=title
+    input.form-control(type='text', placeholder=title, name=name, ng-model='contact.#{name}')&attributes(attributes)
+    each error in errors
+      span.error(ng-show='submitted && form.#{name}.$error.#{error.name}')=error.text
+.contact-detail.container
+  h1 Here are the details of the contact
+  form(ng-submit='save()', name='form', novalidate='')
+    +textbox('Name', 'name', {name:'required',text:'Please add a name'})(required)
+    +textbox('Email', 'email', 'email', {name:'required', text:'Email is required'}, {name:'email', text:'Please enter a valid email address'})(required, email)
+    +textbox('Phone', 'phone', {name:'required',text:'Please add a phone number'})(required)
+    +textbox('Company', 'company', {name:'required',text:'Please add a company name'})(required)
+    +textbox('Address', 'address', {name:'required',text:'Please add an address'})(required)
+    +textbox('Postcode', 'text', 'postcode', {name:'required', text:'Postcode is required'}, {name:'postcode', text:'Please enter a valid postcode'})(required, postcode)
+    +textbox('Message', 'message', {name:'required',text:'Please add a message'})(required)
+    span.input-group-btn
+      input.btn.btn-primary(type='submit', value='Save')
+      input.btn(type='button', ng-click='reset()', value='Reset')

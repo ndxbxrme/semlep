@@ -1,0 +1,5 @@
+.search-results.container
+  h1 search results
+  h3(ng-hide='profiles.length') Litteraly no one can help you
+  div(ng-repeat='profile in profiles') 
+    a(href='profiles-searched/{{profile.slug}}/{{query._id}}') {{profile.name}}

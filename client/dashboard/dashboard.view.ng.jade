@@ -1,0 +1,3 @@
+.container
+  dashboard-admin(ng-if="currentUser.roles.indexOf('admin')!==-1")
+  dashboard-adviser(ng-if="currentUser.roles.indexOf('adviser')!==-1")

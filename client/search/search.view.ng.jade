@@ -1,0 +1,25 @@
+mixin textbox(title, type, name, ...errors)
+  label=title
+    input.form-control(type='#{type}', placeholder=title, name=name, ng-model='query.#{name}')&attributes(attributes)
+    each error in errors
+      span.error(ng-show='submitted && form.#{name}.$error.#{error.name}')=error.text
+mixin multicheck(title, name)
+  .multi-check-container
+    label(ng-click='#{name}Open=!#{name}Open')=title
+    multi-check(ng-model='query.#{name}', ng-class='{open:#{name}Open}')
+      multi-check-item(ng-repeat='item in #{name}', value='{{item._id}}') {{item.name}}
+.search-page.container
+  form(name='form', ng-submit='doQuery()', novalidate)
+    h1 search
+    +multicheck('Which specialism do you need?', 'specialisms')
+    +multicheck('What stage is your business at?', 'stages')
+    +multicheck('What sector is your business in?', 'sectors')
+    +multicheck('What size is your business?', 'sizes')
+    +textbox('Postcode', 'text', 'postcode', {name:'required', text:'Postcode is required'}, {name:'postcode', text:'Please enter a valid postcode'})(required, postcode)
+    +textbox('Email', 'email', 'email', {name:'required', text:'Email is required'}, {name:'email', text:'Please enter a valid email address'})(required, email)
+    +textbox('Name', 'text', 'name', {name:'required', text:'Name is required'})(required)
+    +textbox('Phone', 'text', 'phone', {name:'required', text:'Phone is required'})(required)
+    +textbox('Terms & Conditions', 'checkbox', 'terms', {name:'required', text:'Submit to our terms'})(required)
+    div.controls
+      input(type='submit', valud='Search')
+  

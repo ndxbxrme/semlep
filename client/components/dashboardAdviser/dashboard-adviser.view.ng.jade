@@ -1,0 +1,4 @@
+.dashboard-adviser
+  h1 adviser dashboard
+  div(ng-repeat='query in queries') 
+    a(href='queries/{{query._id}}') {{ query.createdAt | date }}

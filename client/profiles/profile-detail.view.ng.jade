@@ -1,0 +1,33 @@
+mixin textbox(title, name, ...errors)
+  label=title
+    input.form-control(type='text', placeholder=title, name=name, ng-model='profile.#{name}')&attributes(attributes)
+    each error in errors
+      span.error(ng-show='submitted && form.#{name}.$error.#{error.name}')=error.text
+mixin multicheck(title, name)
+  div
+    label=title
+    multi-check(ng-model='profile.#{name}')
+      multi-check-item(ng-repeat='item in #{name}', value='{{item._id}}') {{item.name}}
+.profile-detail.container
+  div(ng-show='currentUser._id')
+    h1 Here are the details of the profile
+    h1(ng-show='isOwner()') Congrats, you are the owner
+    form(ng-submit='save()', name='form', novalidate='')
+      +textbox('Title', 'title', {name:'required',text:'Title is required'})(required)
+      +textbox('Subtitle', 'subtitle')
+      +textbox('Adviser Name', 'name', {name:'required',text:'Please add a name'})(required)
+      +textbox('Company Name', 'companyName')
+      +multicheck('Locations you deal with', 'locations')
+      +multicheck('Specialisms you deal with', 'specialisms')
+      +multicheck('Sectors you deal with', 'sectors')
+      +multicheck('Business Stages you deal with', 'stages')
+      +multicheck('Business Sizes you deal with', 'sizes')
+      span.input-group-btn
+        input.btn.btn-primary(type='submit', value='Save')
+        input.btn(type='button', ng-click='reset()', value='Reset')
+  div(ng-hide='currentUser._id')
+    h1 {{profile.name}}'s profile
+    p(ng-show='queryId')
+      a(href='', ng-click='submitQuery()') Submit query
+    p(ng-show='faqSlug')
+      a(href='search/{{specialismSlug}}/{{faqSlug}}/{{profile.userId}}') Submit query
