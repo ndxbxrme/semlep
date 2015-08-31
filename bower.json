@@ -11,10 +11,11 @@
     "tests"
   ],
   "dependencies": {
+    "ng-file-upload": "^4.2.1"
   },
   "overrides": {
     "angular": {
-      "main": [] 
+      "main": []
     }
   }
 }

@@ -9,8 +9,17 @@ angular.module 'semlepApp'
   doLogout: ->
     Meteor.logout ->
       $location.path '/'
+  linkWithGithub: ->
+    Meteor.linkWithGithub {}
+  linkWithTwitter: ->
+    Meteor.linkWithTwitter {}
+  linkWithFacebook: ->
+    Meteor.linkWithFacebook {}
+  linkWithGoogle: ->
+    Meteor.linkWithGoogle {}
   isAdmin: ->
-    $rootScope.currentUser and $rootScope.currentUser.roles.indexOf('admin') isnt -1
+    $rootScope.currentUser and $rootScope.currentUser.roles and $rootScope.currentUser.roles.indexOf('admin') isnt -1
   isAdviser: ->
-    $rootScope.currentUser and $rootScope.currentUser.roles.indexOf('adviser') isnt -1
+    $rootScope.currentUser and $rootScope.currentUser.roles and $rootScope.currentUser.roles.indexOf('adviser') isnt -1
+
 ]

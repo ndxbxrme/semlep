@@ -4,6 +4,7 @@ angular.module 'semlepApp', [
   'ui.bootstrap'
   'angularUtils.directives.dirPagination'
   'multi-check'
+  'ngFileUpload'
 ]
 
 onReady = () ->

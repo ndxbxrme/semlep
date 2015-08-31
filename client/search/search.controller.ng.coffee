@@ -26,7 +26,6 @@ angular.module 'semlepApp'
     $scope.submitted = true
     if $scope.form.$valid
       Queries.insert $scope.query, (err, queryId) ->
-        console.log 'inserted', err, queryId
         $timeout ->
           if $stateParams.adviserId
             $location.path '/'

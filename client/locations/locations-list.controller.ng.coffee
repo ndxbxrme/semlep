@@ -3,7 +3,7 @@
 angular.module 'semlepApp'
 .controller 'LocationsListCtrl', ['$scope', '$meteor', ($scope, $meteor) ->
   $scope.page = 1
-  $scope.perPage = 3
+  $scope.perPage = 30
   $scope.sort = name_sort : 1
   $scope.orderProperty = '1'
   

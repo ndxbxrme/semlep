@@ -23,11 +23,11 @@ div
           li
             a(href='', ng-click='login.showLogin = true') Login/Register
         ul.nav.navbar-nav.navbar-right(ng-show='currentUser._id')
-          li
+          li(ng-hide='login.isAdmin()')
             a(href='/contacts/new') Contact Us
           li
             a(href='/dashboard') Dashboard
-          li
+          li(ng-hide='login.isAdmin()')
             a(href='/profile') Profile
           li
             a(href='/settings') Settings

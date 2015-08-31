@@ -2,8 +2,12 @@
 
 angular.module 'semlepApp'
 .controller 'UserDetailCtrl', ['$scope', '$stateParams', '$meteor', ($scope, $stateParams, $meteor) ->
-  $scope.user = $scope.$meteorObject Users, $stateParams.userId
-  $scope.$meteorSubscribe('users')
+  $scope.user = $scope.$meteorObject Meteor.users, $stateParams.userId, false
+  $scope.$meteorSubscribe 'allusers'
+  $scope.$meteorSubscribe 'profiles'
+  .then ->
+    $scope.profile = Profiles.findOne
+      userId: $stateParams.userId
   
   $scope.save = () ->
     if $scope.form.$valid

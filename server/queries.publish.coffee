@@ -1,7 +1,6 @@
 'use strict'
 
 Meteor.publish 'queries', (options, searchString, adviserId) ->
-  console.log adviserId
   where =
     'name':
       '$regex': '.*' + (searchString or '') + '.*'

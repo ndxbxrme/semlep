@@ -2,5 +2,5 @@
 
 angular.module 'semlepApp'
 .controller 'SettingsCtrl', ['$scope', ($scope) ->
-  $scope.viewName = 'Settings'
+  $scope.$meteorSubscribe 'allusers'
 ]

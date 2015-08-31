@@ -11,6 +11,14 @@ angular.module 'semlepApp'
       currentUser: ['$meteor', ($meteor) ->
         $meteor.waitForUser()
       ]
+  .state 'profile-detail-simple',
+    url: '/profiles/:profileSlug'
+    templateUrl: 'client/profiles/profile-detail.view.html'
+    controller: 'ProfileDetailCtrl'
+    resolve:
+      currentUser: ['$meteor', ($meteor) ->
+        $meteor.waitForUser()
+      ]
   .state 'profile-detail',
     url: '/profiles/:profileSlug/:specialismSlug/:faqSlug'
     templateUrl: 'client/profiles/profile-detail.view.html'

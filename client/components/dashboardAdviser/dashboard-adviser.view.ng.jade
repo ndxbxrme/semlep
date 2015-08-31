@@ -1,4 +1,5 @@
 .dashboard-adviser
   h1 adviser dashboard
+  div.adviser-image(resource-image='profile.adviserImage', size='200x200', text='upload')
   div(ng-repeat='query in queries') 
     a(href='queries/{{query._id}}') {{ query.createdAt | date }}

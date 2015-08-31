@@ -20,6 +20,7 @@ accounts-ui
 accounts-twitter
 accounts-facebook
 accounts-google
+accounts-github
 todda00:friendly-slugs
 alanning:roles
 fortawesome:fontawesome
@@ -31,3 +32,4 @@ http
 underscorestring:underscore.string
 chrismbeckett:toastr
 ndxbxrme:modified
+bozhao:link-accounts

@@ -14,7 +14,7 @@ angular.module 'semlepApp'
         else
           Meteor.call 'makeAdviser'
           login.showLogin = undefined
-          $location.path '/profiles/new'
+          $location.path '/dashboard'
         return
     scope.doLogin = ->
       Meteor.loginWithPassword scope.loginUser.email, scope.loginUser.password, (err) ->
@@ -24,5 +24,32 @@ angular.module 'semlepApp'
           login.showLogin = undefined
           $location.path '/dashboard'
         return
-        
+    scope.loginWithGithub = ->
+      Meteor.loginWithGithub {}, (err) ->
+        if not err
+          Meteor.call 'makeAdviser'
+          login.showLogin = undefined
+          $location.path '/dashboard'
+        return
+    scope.loginWithTwitter = ->
+      Meteor.loginWithTwitter {}, (err) ->
+        if not err
+          Meteor.call 'makeAdviser'
+          login.showLogin = undefined
+          $location.path '/dashboard'
+        return
+    scope.loginWithFacebook = ->
+      Meteor.loginWithFacebook {}, (err) ->
+        if not err
+          Meteor.call 'makeAdviser'
+          login.showLogin = undefined
+          $location.path '/dashboard'
+        return
+    scope.loginWithGoogle = ->
+      Meteor.loginWithGoogle {}, (err) ->
+        if not err
+          Meteor.call 'makeAdviser'
+          login.showLogin = undefined
+          $location.path '/dashboard'
+        return
 ]

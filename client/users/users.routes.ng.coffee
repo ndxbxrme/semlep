@@ -9,7 +9,8 @@ angular.module 'semlepApp'
     controller: 'UsersListCtrl'
     resolve:
       currentUser: ['$meteor', ($meteor) ->
-        $meteor.requireUser()
+        $meteor.requireValidUser (user) ->
+          user.roles.indexOf('admin') isnt -1
       ]
   .state 'user-detail',
     url: '/users/:userId'
@@ -17,6 +18,7 @@ angular.module 'semlepApp'
     controller: 'UserDetailCtrl'
     resolve:
       currentUser: ['$meteor', ($meteor) ->
-        $meteor.requireUser()
+        $meteor.requireValidUser (user) ->
+          user.roles.indexOf('admin') isnt -1
       ]
 ]

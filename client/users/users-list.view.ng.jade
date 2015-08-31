@@ -18,7 +18,8 @@
       ul.nav.nav-tabs.nav-stacked.col-md-9.col-sm-12
         li(dir-paginate='user in users | itemsPerPage: perPage', total-items='usersCount.count',  current-page='page')
           p
-            a(href='/users/{{user._id}}') {{ user.name }}
+            a(href='/users/{{user._id}}') {{ user.emails[0].address }} {{ user.roles[0] }}
+            div(ng-init='profile = getProfile(user)') {{ profile.name }}, specialisms {{ profile.specialisms.length }}
             button.btn(ng-click='remove(user)') &times;
       dir-pagination-controls.col-md-12(on-page-change='pageChanged(newPageNumber)')
   p Total number of users: {{usersCount.count}}
