@@ -34,5 +34,8 @@ angular.module 'semlepApp'
       scope.$meteorSubscribe 'businessStats'
       .then ->
         scope.businessStatsCount = scope.$meteorObject Counts, 'numberOfBusinessStats', false
+      scope.$meteorSubscribe 'contacts'
+      .then ->
+        scope.contacts = scope.$meteorCollection Contacts
   }
 ]

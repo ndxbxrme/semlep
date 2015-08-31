@@ -1,5 +1,5 @@
 @Contacts = new Mongo.Collection('contacts')
-
+Contacts.ndxModified()
 Contacts.allow
   insert: (userId, contact) ->
     true

@@ -10,7 +10,8 @@ mixin multicheck(title, name)
       multi-check-item(ng-repeat='item in #{name}', value='{{item._id}}') {{item.name}}
 .profile-detail.container
   div(ng-show='currentUser._id')
-    h1 Here are the details of the profile
+    h1(ng-hide='profile.createdAt') Setup your profile first
+    h1(ng-show='profile.createdAt') Here are the details of the profile
     h1(ng-show='isOwner()') Congrats, you are the owner
     form(ng-submit='save()', name='form', novalidate='')
       +textbox('Title', 'title', {name:'required',text:'Title is required'})(required)

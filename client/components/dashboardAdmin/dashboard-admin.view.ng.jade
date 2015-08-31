@@ -1,5 +1,9 @@
 .dashboard-admin
   h1 admin dashboard
+  h3 contacts
+  div(ng-repeat='contact in contacts')
+    a(href='contacts/{{contact._id}}') {{contact.createdAt | date}} : {{contact.name}} : {{contact.message}}
+  h3 stuff
   div
     a(href='locations') Locations ({{locationsCount.count}})
   div
