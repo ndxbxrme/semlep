@@ -4,6 +4,7 @@ Profiles.friendlySlugs()
 
 Profiles.allow
   insert: (userId, profile) ->
+    console.log 'inserting', userId, profile
     if not profile.userId
       profile.userId = userId
     true

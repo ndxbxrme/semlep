@@ -20,6 +20,11 @@ div
             a(href='/about') About Us
           li
             a(href='/contacts/new') Contact Us
+          li.mdl-textfield.mdl-js-textfield.mdl-textfield--expandable.mdl-textfield--floating-label.hidden-xs
+            label.mdl-button.mdl-js-button.mdl-button--icon(for='adviser-search', ng-click='clearSearch()')
+              i.material-icons search
+            .mdl-textfield__expandable-holder
+              input.mdl-textfield__input#adviser-search(type='text', name='sample', ng-model='profileSearch')
           li
             a(href='', ng-click='login.showLogin = true') Login/Register
         ul.nav.navbar-nav.navbar-right(ng-show='currentUser._id')
@@ -31,5 +36,11 @@ div
             a(href='/profile') Profile
           li
             a(href='/settings') Settings
+          li.mdl-textfield.mdl-js-textfield.mdl-textfield--expandable.mdl-textfield--floating-label.hidden-xs
+            label.mdl-button.mdl-js-button.mdl-button--icon(for='admin-search', ng-click='clearSearch()')
+              i.material-icons search
+            .mdl-textfield__expandable-holder
+              input.mdl-textfield__input#admin-search(type='text', name='sample', ng-model='profileSearch')
           li
             a(href='', ng-click='login.doLogout()', ng-show='currentUser._id') Logout
+  profile-search

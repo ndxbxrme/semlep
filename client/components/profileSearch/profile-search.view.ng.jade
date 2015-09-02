@@ -1,0 +1,5 @@
+.profile-search.hidden-xs(ng-show='profileSearch')
+  .container
+    .search-results
+      div(ng-repeat='result in searchResults') 
+        a(href='profiles/{{result.slug}}', ng-click="clearSearch()") {{result.name}}
